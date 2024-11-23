@@ -2,8 +2,7 @@ let addTask = document.querySelector("#addList");
 let list = document.querySelector(".tasks");
 let clearTasks = document.querySelector("#clearList");
 let msg=document.querySelector(".msg");
-let text= document.querySelector(".text");
-let deleteTask=document.querySelector(".clear");
+ 
 
 const removePara = ()=>{
     msg.classList.remove("msg");
@@ -11,22 +10,47 @@ const removePara = ()=>{
 }
 
 const addPara = ()=>{
+     
     msg.classList.remove("hidden");
-    msg.classList.add("msg")
+    msg.classList.add("msg");
 }
-
 
 addTask.addEventListener("click",()=>{
     removePara();
-     
-    list.insertAdjacentHTML("beforeend",`<input type='text' class='text' value='• '>
-    <button class='clear'><i class='fa-solid fa-xmark' id='delete'></i>
-    </button>`)
-     
+    const inputField= document.createElement("input");
+    inputField.type="text";
+    inputField.classList.add("text");
+    inputField.value="• ";
+    inputField.onkeydown="return false;"
 
-})
+    const deleteTask = document.createElement("button");
+    deleteTask.innerHTML = `<i class='fa-solid fa-xmark'></i>`
+    deleteTask.classList.add("clear");
 
-clearTasks.addEventListener("click",()=>{
-     list.innerHTML="<p class='msg'>click the + button to add your task!!</p>";
-     addPara();
-})
+    let listItem = document.createElement("div");
+    listItem.classList.add("listItem");
+    listItem.appendChild(inputField);
+    listItem.appendChild(deleteTask);
+
+
+    list.appendChild(listItem);
+
+
+    deleteTask.addEventListener("click",()=>{
+        listItem.removeChild(inputField);
+        listItem.removeChild(deleteTask);
+         
+    })
+    
+    clearTasks.addEventListener("click",()=>{
+        addPara();
+       list.removeChild(listItem);
+   });
+   
+   
+
+ });
+
+
+
+

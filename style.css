@@ -13,9 +13,9 @@ body{
 
 .container{
     height: 60vh;
-    width:40vh;
+    width: 50vh;
     border: 2px solid black ;
-    background-color: grey;
+    background-color: #0f0f0f;
     margin-top: 15vh;
 }
 
@@ -30,7 +30,7 @@ body{
 
 .heading{
     height:10vh;
-    width:40vh;
+    width:50vh;
     background-color: black;
     color:white;
     display: flex;
@@ -40,35 +40,50 @@ body{
 
 .tasks{
    height: 50vh;
-   width: 40vh;
+   width: 50vh;
    display: flex; 
    flex-direction: column;
    overflow-y:auto;
    overflow-x: hidden;
-   
-    
+}
+
+.listItems{
+    height: 8vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    width:50vh;
 }
 .clear{
-    align-self:flex-end;
-    align-items: center;
-    position: absolute;
-    display: none;
+    margin-left: 2rem;
+    height:2vh;
+    width:2vh;
     background: transparent;
-    border: none;
-    outline:none;
+    color: green;
+}
 
+::-webkit-scrollbar{
+    width:0.1em;
+    background-color: aqua;
+}
+
+::-webkit-scrollbar-thumb{
+    color: #0f0f0f;
 }
 
 .text{
-    height: 8vh;
+    min-height: 8vh;
     width: 40vh;
+    display: inline-block;
     font-size: 1.5rem;
     border: none;
     outline: none;
     padding-left:0.5rem;
-    background-color: blue;
-    color: green;
+    background-color: black;
+    color:red;
     margin: 0.5rem  0  0.5rem  0;
+    overflow:none;
        
 
 }
@@ -79,11 +94,8 @@ body{
     justify-content: center;
     align-items: center;
     flex-wrap:wrap;
-    justify-content: space-between;
-    border:2px solid black;
+    justify-content: space-evenly;
     margin-top: 1rem;
-
-    
 }
 
 #addList{
@@ -96,7 +108,16 @@ body{
 }
 
 #clearList{
-    height: 5vh;
-    width:15vh;
+    margin-top: 2vh;
+    background: transparent;
+    font-size: 2rem;
+    color: red;
+    outline: none;
+    border: none;
 }
+
+ 
+ 
+
+
  
